@@ -1,0 +1,14 @@
+* {
+    color: #c0c0c0;
+    font-family: monospace;
+    background-color: #020202;
+}
+
+body {
+    margin: 10px 20% 2em 20%;
+}
+
+p {
+    text-justify: inter-word;
+}
+
