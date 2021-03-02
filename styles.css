@@ -2,21 +2,22 @@ body {
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
+    font-family: "Hiragino Sans", sans-serif;
 }
 
 h1 {
-    font-family: "Hiragino Sans", sans-serif;
     font-size: 50px;
 }
 
 h2 {
-    font-family: "Hiragino Sans", sans-serif;
     font-size: 30px;
 }
 
 
 p {
     text-justify: inter-word;
-    font-family: "Hiragino Sans", sans-serif;
 }
 
+a {
+    color: #00658f;
+}
