@@ -1,14 +1,14 @@
-* {
-    color: #c0c0c0;
-    font-family: monospace;
-    background-color: #020202;
+body {
+    margin: 70px 20% 2em 20%;
 }
 
-body {
-    margin: 10px 20% 2em 20%;
+h1 {
+    font-family: "Hiragino Sans", sans-serif;
+    font-size: 50px;
 }
 
 p {
     text-justify: inter-word;
+    font-family: "Hiragino Sans", sans-serif;
 }
 
