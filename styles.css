@@ -1,0 +1,74 @@
+
+@font-face {
+    font-family: 'Product Sans Medium Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Product Sans Medium Regular'), url('ProductSans-Medium.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Product Sans Light';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Product Sans Light'), url('ProductSans-Light.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Roboto Mono';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Roboto Mono'), url('RobotoMono-VariableFont_wght.ttf') format('ttf');
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    background: #182026;
+    color: white;
+    display: flex;
+    justify-content: center;
+    font-size: 15px;
+}
+
+
+h1 {
+    font-size: 35px;
+    margin: 0;
+    font-family: "Product Sans Medium Regular", sans-serif;
+}
+
+h2 {
+    font-family: "Product Sans Light", sans-serif;
+    font-size: 18px;
+    margin: 0;
+}
+
+h3 {
+    font-size: 25px;
+}
+
+p {
+    font-family: "Product Sans Light", sans-serif;
+    background: #0b1011;
+    padding: 20px;
+}
+
+.card {
+    font-family: 'Product Sans Light', serif;
+    min-width: 200px;
+    max-width: 600px;
+    margin-top: 50px;
+}
+
+li {
+    font-size: 16px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+
+}
+
+.company {
+    font-size: 20px;
+}
