@@ -51,7 +51,7 @@ h3 {
 
 p {
     font-family: "Product Sans Light", sans-serif;
-    background: #f3f3f3;
+    border: 1px solid black;
     padding: 20px;
 }
 
