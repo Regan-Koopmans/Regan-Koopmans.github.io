@@ -25,7 +25,7 @@ html {
 }
 
 body {
-    background: #e3e3e3;
+    background: #fff;
     color: #181818;
     display: flex;
     justify-content: center;
@@ -51,7 +51,7 @@ h3 {
 
 p {
     font-family: "Product Sans Light", sans-serif;
-    background: #cbcbcb;
+    background: #f3f3f3;
     padding: 20px;
 }
 
