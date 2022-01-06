@@ -54,6 +54,7 @@ p {
     font-family: "Product Sans Light", sans-serif;
     border: 1px solid black;
     padding: 20px;
+    box-shadow: 8px 8px black;
 }
 
 .card {
