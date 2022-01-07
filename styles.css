@@ -71,16 +71,22 @@ li {
 
 .company {
     font-size: 18px;
+    width: 15%;
 }
 
 .date-range {
     font-family: monospace;
     font-size: 14px;
+    width: 30%
 }
 
 table {
     font-size: 18px;
     width: 100%;
+}
+
+tr {
+    margin-bottom: 10px;
 }
 
 .links {
