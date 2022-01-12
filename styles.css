@@ -83,10 +83,16 @@ li {
 table {
     font-size: 18px;
     width: 100%;
+
 }
 
 tr {
     margin-bottom: 10px;
+}
+
+td {
+    vertical-align: top;
+    padding-bottom: 1em;
 }
 
 .links {
