@@ -114,8 +114,7 @@ td {
 }
 
 .links a {
-    margin: 5px;
-    padding: 5px;
+    padding-right: 10px;
     display: block;
 
 }
