@@ -1,4 +1,3 @@
-
 @font-face {
     font-family: 'Product Sans Medium Regular';
     font-style: normal;
@@ -121,4 +120,21 @@ td {
 
 a {
     color: #181818;
+}
+
+.blog-posts li {
+    list-style-type: circle;
+    size: 40px;
+}
+
+p {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+pre {
+    background: #171717;
+    padding: 10px;
+    color: #e3e3e3;
+    font-family: "JetBrains Mono", monospace;
 }
