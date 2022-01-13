@@ -20,6 +20,14 @@
     src: url('fonts/RobotoMono-VariableFont_wght.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'Jetbrains Mono';
+    font-style: normal;
+    font-weight: normal;
+    src: url('fonts/JetBrainsMono-VariableFont_wght.ttf') format('truetype');
+}
+
+
 html {
     height: 100%;
 }
@@ -48,8 +56,9 @@ h1 {
 }
 
 h3 {
-    font-family: "Roboto Mono", sans-serif;
+    font-family: "Jetbrains Mono", sans-serif;
     font-size: 25px;
+    margin-top: 40px;
 }
 
 p.jumbo {
@@ -57,6 +66,7 @@ p.jumbo {
     border: 1px solid black;
     padding: 20px;
     box-shadow: 8px 8px black;
+    margin-bottom: 20px;
 }
 
 .card {
@@ -77,7 +87,7 @@ li {
 }
 
 .date-range {
-    font-family: monospace;
+    font-family: "JetBrains Mono", monospace;
     font-size: 14px;
     width: 30%
 }
