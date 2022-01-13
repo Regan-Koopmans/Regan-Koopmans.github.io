@@ -30,6 +30,8 @@ body {
     display: flex;
     justify-content: center;
     font-size: 18px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 
