@@ -3,6 +3,7 @@
     font-style: normal;
     font-weight: normal;
     src: local('Product Sans Medium Regular'), url('fonts/ProductSans-Medium.woff') format('woff');
+    font-display: swap;
 }
 
 @font-face {
@@ -10,6 +11,7 @@
     font-style: normal;
     font-weight: normal;
     src: local('Product Sans Light'), url('fonts/ProductSans-Light.woff') format('woff');
+    font-display: swap;
 }
 
 @font-face {
@@ -17,6 +19,7 @@
     font-style: normal;
     font-weight: normal;
     src: url('fonts/RobotoMono-VariableFont_wght.ttf') format('truetype');
+    font-display: swap;
 }
 
 @font-face {
@@ -24,6 +27,7 @@
     font-style: normal;
     font-weight: normal;
     src: url('fonts/JetBrainsMono-VariableFont_wght.ttf') format('truetype');
+    font-display: swap;
 }
 
 
