@@ -24,7 +24,7 @@ function arrangeNodes() {
 class Node {
     constructor(id) {
         this.id = id
-        this.color = 'white'
+        this.color = 'black'
         this.x = 0
         this.y = 0
     }
@@ -101,7 +101,7 @@ function reset() {
     arrows = []
     for (let i = 0; i < nodes.length; i++) {
         let node = nodes[i]
-        node.color = 'white'
+        node.color = 'black'
     }
     render()
 }
