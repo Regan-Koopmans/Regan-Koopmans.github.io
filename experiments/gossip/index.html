@@ -1,0 +1,57 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Consensus Algorithms</title>
+    <link rel="stylesheet" href="gossip.css" />
+</head>
+<body>
+    <h1>Consensus Algorithms</h1>
+    <p>
+        One of the most important problems in distributed computing is that of consensus. In short, 
+        this is about getting actors to agree on some decision or the state of some information. 
+        Suppose you have some social network, and that this social network is too large to host from
+        a single server. You might choose to have a server per country. This begs the question: How
+        do you keep the servers in sync? How do you make sure that the information on each server is
+        the same? This is the problem of consensus.
+    </p>
+
+    <p>
+        Below we will explore some of the ways that this problem has been solved, with their respective
+        advantages and disadvantages.
+    </p>
+
+    <h2>Gossip Consensus</h2>
+
+    <p>
+        It is no secret that gossip spreads. As with many problems we find a solution already in nature.
+        In gossip consensus, each node in the network has a state. This state can be anything, but for
+        simplicity we will use a boolean value. Each node has a list of its neighbors, and it will send
+        its state to each of its neighbors. When a node receives a state from a neighbor, it will update
+        its own state to match that of the neighbor. This process is repeated until all nodes have the
+        same state. Under this model, information spreads like a virus, and quickly reaches all nodes in 
+        the network.
+    </p>
+
+    <p>
+        Below you can see a simulation of how quickly all the nodes in a network can be brought to the same
+        state. The nodes are represented by circles, and the state of each node is represented by its color.
+        You may observe that all nodes will be red after about 11 steps, and almost always after 15 steps.
+        This is because gossip algorithms have logarithmic convergence time. This means that the time it takes
+        for all nodes to reach the same state is proportional to the logarithm of the number of nodes in the
+        network.
+    </p>
+
+    <canvas id="gossip" width="500" height="500"></canvas>
+    <button onclick="step()">Step</button>
+    <button onclick="reset()">Reset</button>
+
+    <p>
+        
+    </p>
+
+    <h2>Leader Election</h2>
+
+</body>
+<script src="gossip.js"></script>
+</html>
