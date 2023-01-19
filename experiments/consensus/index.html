@@ -1,0 +1,172 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Consensus Algorithms</title>
+    <link rel="stylesheet" href="gossip.css" />
+</head>
+
+<body>
+    <h1>Consensus Algorithms</h1>
+    <p>
+        One of the most important problems in distributed computing is that of consensus. In short,
+        this is about getting actors to agree on some decision or the state of some information.
+        Suppose you have some social network, and that this social network is too large to host from
+        a single server. You might choose to have a server per country. This begs the question: How
+        do you keep the servers in sync? How do you make sure that the information on each server is
+        the same? This is the problem of consensus.
+    </p>
+
+    <p>
+        Below we will explore some of the ways that this problem has been solved, with their respective
+        advantages and disadvantages.
+    </p>
+
+    <h2>Gossip Consensus</h2>
+
+    <p>
+        It is no secret that gossip spreads. As with many problems we find a solution already in nature.
+        In gossip consensus, each node in the network has a state. This state can be anything, but for
+        simplicity we will use a boolean value. Each node has a list of its neighbors, and it will send
+        its state to each of its neighbors. When a node receives a state from a neighbor, it will update
+        its own state to match that of the neighbor. This process is repeated until all nodes have the
+        same state. Under this model, information spreads like a virus, and quickly reaches all nodes in
+        the network.
+    </p>
+
+    <p>
+        Below you can see a simulation of how quickly all the nodes in a network can be brought to the same
+        state. The nodes are represented by circles, and the state of each node is represented by its color.
+        You may observe that all nodes will be red after about 11 steps, and almost always after 15 steps.
+        This is because gossip algorithms have logarithmic convergence time. This means that the time it takes
+        for all nodes to reach the same state is proportional to the logarithm of the number of nodes in the
+        network.
+    </p>
+
+    <canvas id="gossip" width="500" height="500"></canvas>
+    <button onclick="step()">Step</button>
+    <button onclick="reset()">Reset</button>
+
+    <p>
+
+    </p>
+
+    <h2>Leader Election</h2>
+
+</body>
+<script>
+    let canvas = document.getElementById('gossip')
+    let ctx = canvas.getContext('2d')
+    let width = canvas.width
+    let height = canvas.height
+    let nodes = []
+    let arrows = []
+    let leader = null
+    let step_count = 0
+
+    function arrangeNodes() {
+        let radius = 200
+        let centerX = width / 2
+        let centerY = height / 2
+        let angle = 0
+        let angleIncrement = 2 * Math.PI / nodes.length
+        for (let i = 0; i < nodes.length; i++) {
+            let node = nodes[i]
+            node.x = centerX + radius * Math.cos(angle)
+            node.y = centerY + radius * Math.sin(angle)
+            angle += angleIncrement
+        }
+    }
+
+    class Node {
+        constructor(id) {
+            this.id = id
+            this.color = 'black'
+            this.x = 0
+            this.y = 0
+        }
+    }
+
+    function render() {
+        ctx.clearRect(0, 0, width, height)
+        for (let i = 0; i < nodes.length; i++) {
+            let node = nodes[i]
+            ctx.beginPath()
+            ctx.arc(node.x, node.y, 10, 0, 2 * Math.PI)
+            ctx.fillStyle = node.color
+            ctx.fill()
+            ctx.closePath()
+        }
+
+        // Draw arrows
+        for (let i = 0; i < arrows.length; i++) {
+            let arrow = arrows[i]
+            let node1 = nodes[arrow[0]]
+            let node2 = nodes[arrow[1]]
+            ctx.beginPath()
+            ctx.moveTo(node1.x, node1.y)
+            ctx.lineTo(node2.x, node2.y)
+            ctx.strokeStyle = 'red'
+            ctx.stroke()
+            ctx.closePath()
+        }
+
+        // Draw step count
+        ctx.font = '20px Arial'
+        ctx.fillStyle = 'white'
+        ctx.fillText('Step: ' + step_count, 10, 30)
+    }
+
+    for (let i = 0; i < 50; i++) {
+        let node = new Node(i)
+        nodes.push(node)
+    }
+
+    function step() {
+        step_count += 1
+        // For each node of colour red, tell a random node of any colour to become red.
+        let redNodes = nodes.filter(node => node.color == 'red')
+        if (redNodes.length == 0) {
+            let randomNode = nodes[Math.floor(Math.random() * nodes.length)]
+            randomNode.color = 'red'
+            render()
+            return;
+        }
+
+        nodes_to_make_red = []
+        for (let i = 0; i < nodes.length; i++) {
+            let node = nodes[i]
+            if (node.color == 'red') {
+                index = i
+                while (index == i) {
+                    index = Math.floor(Math.random() * nodes.length)
+                }
+                arrows.push([i, index])
+                nodes_to_make_red.push(index)
+            }
+        }
+        for (let i = 0; i < nodes_to_make_red.length; i++) {
+            let node = nodes[nodes_to_make_red[i]]
+            node.color = 'red'
+        }
+        render()
+    }
+
+    function reset() {
+
+        step_count = 0
+        arrows = []
+        for (let i = 0; i < nodes.length; i++) {
+            let node = nodes[i]
+            node.color = 'black'
+        }
+        render()
+    }
+
+    arrangeNodes()
+    render()
+
+
+</script>
+
+</html>
