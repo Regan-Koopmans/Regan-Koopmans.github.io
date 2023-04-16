@@ -30,6 +30,13 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'Alliance No. 2';
+    font-style: normal;
+    font-weight: normal;
+    src: url('fonts/alliance/alliance.otf') format('opentype');
+    font-display: swap;
+}
 
 /* Tags */
 html {
@@ -37,23 +44,23 @@ html {
 }
 
 body {
-    background: #fff;
-    color: #181818;
+    background: #1e2124;
+    color: white;
     display: flex;
     justify-content: center;
     font-size: 18px;
-    padding-left: 15px;
-    padding-right: 15px;
+    height: 100vh;
+    margin: 0
 }
 
 h1 {
     font-size: 35px;
     margin: 0;
-    font-family: "Product Sans Medium Regular", sans-serif;
+    font-family: "Alliance No. 2", sans-serif;
 }
 
 h3 {
-    font-family: "Jetbrains Mono", sans-serif;
+    font-family: "Alliance No. 2", sans-serif;
     font-size: 25px;
     margin-top: 40px;
 }
@@ -88,10 +95,12 @@ td {
 p {
     text-align: justify;
     text-justify: inter-word;
+    font-family: 'Jetbrains Mono', monospace;
+    font-size: small;
 }
 
 a {
-    color: #181818;
+    color: white;
 }
 
 /* Classes */
@@ -113,6 +122,8 @@ a {
     font-family: 'Product Sans Light', serif;
     width: 700px;
     margin-top: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .company {
@@ -127,9 +138,9 @@ a {
 }
 
 .links {
-    margin-top: 30px;
-    margin-bottom: 20px;
     display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .links a {
