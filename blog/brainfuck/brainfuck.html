@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Regan Koopmans</title>
     <link rel="stylesheet" href="/styles.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/2.35.3/js/jquery.terminal.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/2.35.3/css/jquery.terminal.min.css" rel="stylesheet"/>
     <script src="/components/nav/nav.js"></script>
 </head>
 <body>
@@ -56,6 +59,68 @@
       (there are plenty such resources online), but I would recommend this as a
       first foray into interpreters and virtual machines.
     </p>
+
+    <p>
+      Feel free to try out brainfuck below:
+    </p>
+<template id="greetings">
+BF 1.0. Regan Koopmans 2023
+Use bf command to run brainfuck programs.
+</template>
+    <div id='terminal'></div>
+    <script>
+      $(function() {
+          $('#terminal').terminal(function(code) {
+        let tape = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        let pointer = 0
+        let stack = []
+        let programCounter = 0
+
+        commands = {
+            '>': function () {
+                pointer++
+                // Dynamically grow the tape if we go out of bounds
+                if (pointer >= tape.length) { tape.push(0) }
+            },
+            '<': function () {
+                pointer--
+                if (pointer < 0) {
+                    tape.unshift(0)
+                    pointer = 0
+                }
+            },
+            '+': () => { tape[pointer]++ },
+            '-': () => { tape[pointer]-- },
+            '.': () => { this.echo("[[;orange;black]" + String.fromCharCode(tape[pointer]) + "]", {newline: false}) },
+            ',': () => { tape[pointer] = prompt('Enter a character:').charCodeAt(0) },
+            '[': () => {
+                if (tape[pointer] === 0) {
+                    let depth = 1
+                    while (depth > 0) {
+                        programCounter++
+                        if (code[programCounter] === '[') {
+                            depth++
+                        } else if (code[programCounter] === ']') { depth-- }
+                    }
+                } else { stack.push(programCounter) }
+            }, ']': function () { programCounter = stack.pop() - 1 }
+        }
+
+
+        tape = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        pointer = 0
+        stack = []
+        programCounter = 0
+        iter_count = 100000
+        while (programCounter < code.length && iter_count-- > 0) {
+            let instr = code[programCounter]
+            if (instr in commands) { commands[instr]() }
+              programCounter++
+        }
+              this.echo()
+        }, { prompt: 'bf> ', greetings: false });
+      });
+    </script>
 </section>
 </body>
 </html>
