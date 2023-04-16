@@ -73,23 +73,8 @@ pre {
 }
 
 li {
-    font-size: 16px;
-    margin-top: 2px;
-    margin-bottom: 20px;
-}
-
-table {
-    font-size: 18px;
-    width: 100%;
-}
-
-tr {
-    margin-bottom: 10px;
-}
-
-td {
-    vertical-align: top;
-    padding-bottom: 1em;
+    font-family: 'Jetbrains Mono', monospace;
+    font-size: small;
 }
 
 p {
@@ -103,19 +88,15 @@ a {
     color: white;
 }
 
+a.colour-link {
+    color: cyan;
+}
+
 /* Classes */
 .subtitle {
     font-family: "Product Sans Light", sans-serif;
     font-size: 20px;
     margin: 0;
-}
-
-.jumbo {
-    font-family: "Product Sans Light", sans-serif;
-    border: 1px solid black;
-    padding: 20px;
-    box-shadow: 8px 8px black;
-    margin-bottom: 20px;
 }
 
 .card {
@@ -131,12 +112,6 @@ a {
     width: 15%;
 }
 
-.date-range {
-    font-family: "JetBrains Mono", monospace;
-    font-size: 14px;
-    width: 30%
-}
-
 .links {
     display: flex;
     margin-top: 10px;
@@ -146,11 +121,24 @@ a {
 .links a {
     padding-right: 10px;
     display: block;
+    text-decoration: none;
+}
 
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+ul.blog-posts {
+    list-style: none;
+    padding-left: 0;
 }
 
 .blog-posts li {
-    list-style-type: circle;
+    list-style-type: none;
     size: 40px;
 }
 
