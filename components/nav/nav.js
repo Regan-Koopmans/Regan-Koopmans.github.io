@@ -4,7 +4,7 @@ class NavBar extends HTMLElement {
         <div class="links">
             <a href="/index.html">Home</a>
             <a href="/blog.html">Blog</a>
-            <a href="https://github.com/Regan-Koopmans" target="_blank">GitHub</a>
+            <a href="https://github.com/Regan-Koopmans" target="_blank">Projects</a>
         </div>
     `;
     }
