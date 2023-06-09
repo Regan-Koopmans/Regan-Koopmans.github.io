@@ -80,7 +80,7 @@ p {
     font-family: 'Jetbrains Mono', monospace;
     font-size: small;
     text-align: justify;
-    text-justify: inter-word;
+    text-justify: inter-character;
 }
 
 a {
