@@ -77,10 +77,8 @@ li {
 }
 
 p {
-    font-family: 'Jetbrains Mono', monospace;
-    font-size: small;
     text-align: justify;
-    text-justify: inter-character;
+    text-justify: auto;
 }
 
 a {
