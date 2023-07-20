@@ -9,7 +9,12 @@
     <link rel="stylesheet" href="styles.css">
     <script src="components/nav/nav.js"></script>
 </head>
-
+<style>
+    #canvas {
+        margin: auto;
+        display: block;
+    }
+</style>
 <body>
     <section class="card">
         <h1>Regan Koopmans
@@ -17,13 +22,78 @@
         <h1 class="subtitle">Software Engineer
         </h1>
         <site-nav></site-nav>
-
         <p>
             Hi there! I am Regan. I am a software engineer based in The Netherlands.
             I am interested in optimisation, low-level programming and music.
-
         </p>
+        <canvas id="canvas" width="300" height="300"></canvas>
         </section>
 </body>
+<script>
+    function makeArray(w, h, val) {
+        var arr = [];
+        for(let i = 0; i < h; i++) {
+            arr[i] = [];
+            for(let j = 0; j < w; j++) { arr[i][j] = val; }
+        }
+        return arr;
+    }
 
+    function count_neighbours(state, i, j) {
+        neighbours = 0
+        if (i > 0 && state[i-1][j]) { neighbours += 1 }
+        if (j > 0 && state[i][j-1]) { neighbours += 1 }
+        if (i < 29 && state[i+1][j]) { neighbours += 1 }
+        if (j < 29 && state[i][j+1]) { neighbours += 1 }
+        if (i > 0 && j > 0 && state[i - 1][j - 1]) { neighbours += 1 }
+        if (i < 29 && j < 29 && state[i + 1][j + 1]) { neighbours += 1}
+        if (i > 0 && j < 29 && state[i - 1][j + 1]) { neighbours += 1 }
+        if (i < 29 && j > 0 && state[i + 1][j - 1]) { neighbours += 1 }
+        return neighbours
+    }
+
+    function next_step(current_state) {
+        new_state = makeArray(30, 30, undefined)
+        for (let i = 0; i < 30; i++) {
+            for (let j = 0; j < 30; j++) {
+                neighbours = count_neighbours(current_state, i, j)
+                if (neighbours == 3) {
+                    new_state[i][j] = true
+                } else if (neighbours == 2 && current_state[i][j]) {
+                    new_state[i][j] = true
+                }
+            }
+        }
+        return new_state
+    }
+
+    function render(state) {
+        requestAnimationFrame(() => render(state));
+        now = Date.now();
+        elapsed = now - then;
+        if (elapsed > fpsInterval) {
+            then = now - (elapsed % fpsInterval);
+            ctx.clearRect(0, 0, c.width, c.height);
+            for (let i = 0; i < 30; i++) {
+                for (let j = 0; j < 30; j++) {
+                    if (grid[i][j]) {
+                        ctx.fillText("🮻", i * 10, j * 10);
+                    }
+                }
+            }
+            grid = next_step(grid);
+        }
+    }
+    var then = Date.now()
+    fpsInterval = 250
+    let grid = makeArray(30, 30, undefined)
+    grid[15][15] = true
+    grid[15][16] = true
+    grid[15][17] = true
+    let c = document.getElementById("canvas");
+    let ctx = c.getContext("2d");
+    ctx.font = "15px Arial";
+    ctx.fillStyle = "white"
+    render()
+</script>
 </html>
