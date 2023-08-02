@@ -76,7 +76,6 @@
         if (elapsed > fpsInterval) {
             then = now - (elapsed % fpsInterval);
 
-            ctx.globalAlpha = 0.5;
             ctx.rect(0, 0, c.width, c.height);
             ctx.fillStyle = "#1e2124"
             ctx.fill();
