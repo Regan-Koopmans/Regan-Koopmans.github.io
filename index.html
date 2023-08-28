@@ -26,7 +26,7 @@
             Hi there! I am Regan. I am a software engineer based in The Netherlands.
             I am interested in optimisation, low-level programming and music.
         </p>
-        <canvas style="margin-top:10px;" id="canvas" width="300" height="300"></canvas>
+        <canvas style="margin-top:20px;" id="canvas" width="300" height="300"></canvas>
         </section>
 </body>
 <script type> </script>
@@ -80,10 +80,10 @@
             then = now - (elapsed % fpsInterval);
 
             ctx.rect(0, 0, c.width, c.height);
-            ctx.fillStyle = "#1e2124"
+            ctx.fillStyle = "white"
             ctx.fill();
             ctx.globalAlpha = 1.0;
-            ctx.fillStyle = "white"
+            ctx.fillStyle = "#1e2124"
 
             for (let i = 0; i < WIDTH; i++) {
                 for (let j = 0; j < WIDTH; j++) {

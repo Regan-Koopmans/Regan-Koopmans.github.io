@@ -44,8 +44,8 @@ html {
 }
 
 body {
-    background: #1e2124;
-    color: white;
+    /*background: #1e2124;*/
+    /*color: white;*/
     display: flex;
     justify-content: center;
     font-size: 18px;
@@ -82,7 +82,8 @@ p {
 }
 
 a {
-    color: white;
+    /*color: white;*/
+    color: black;
 }
 
 a.colour-link {
