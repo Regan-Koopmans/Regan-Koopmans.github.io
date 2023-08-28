@@ -53,6 +53,25 @@
 
     <h4>Abstractions</h4>
 
+    <p>
+        Much software written today exists on a teetering tower of abstractions. It's considered perfectly reasonable
+        to have a Java program, running on a JVM, running on an OS, running on a Docker container, running on an
+        OS, running on a virtual machine, running in a data-center somewhere. Excel is more "native"
+        than a lot of commercial software, even if you use the online version. There are multiple layers in which
+        dependency hell can occur, most prominently at the application and the first OS level. You can have
+        incompatibilities across these layers too.
+    </p>
+
+    <p>
+        All of this is fine if you stick to extremely "vanilla" setups that cloud providers have outlined. Your
+        application can be deployed and geographically replicated in minutes. But this setup can never be
+        considered "stable". We live in a strange world where C code from the 80s can be compiled to modern machines,
+        but a JavaScript project from 2010 is not very likely to run.
+    </p>
+
+    <p>
+        I am not really sure where I am going with this argument. I suppose I just want more simplicity.
+    </p>
 </section>
 </body>
 </html>
