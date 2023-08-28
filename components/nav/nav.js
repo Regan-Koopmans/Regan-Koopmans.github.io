@@ -4,6 +4,7 @@ class NavBar extends HTMLElement {
         <div class="links">
             <a href="/index.html">Home</a>
             <a href="/blog.html">Blog</a>
+            <a href="/opinions.html">Opinions</a>
             <a href="/projects.html">Projects</a>
         </div>
     `;
