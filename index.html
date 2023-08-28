@@ -31,9 +31,9 @@
 </body>
 <script type> </script>
 <script>
-    WIDTH = 62
+    const WIDTH = 62
     function makeArray(w, h, val) {
-        var arr = [];
+        let arr = [];
         for(let i = 0; i < h; i++) {
             arr[i] = [];
             for(let j = 0; j < w; j++) { arr[i][j] = val; }
@@ -42,7 +42,7 @@
     }
 
     function count_neighbours(state, i, j) {
-        neighbours = 0
+        let neighbours = 0;
         if (i > 0 && state[i-1][j]) { neighbours += 1 }
         if (j > 0 && state[i][j-1]) { neighbours += 1 }
         if (i < WIDTH-1 && state[i+1][j]) { neighbours += 1 }
@@ -55,13 +55,14 @@
     }
 
     function next_step(current_state) {
-        new_state = makeArray(WIDTH, WIDTH, undefined)
+        let new_state = makeArray(WIDTH, WIDTH, undefined);
+        let neighbours;
         for (let i = 0; i < WIDTH; i++) {
             for (let j = 0; j < WIDTH; j++) {
                 neighbours = count_neighbours(current_state, i, j)
-                if (neighbours == 3) {
+                if (neighbours === 3) {
                     new_state[i][j] = true
-                } else if (neighbours == 2 && current_state[i][j]) {
+                } else if (neighbours === 2 && current_state[i][j]) {
                     new_state[i][j] = true
                 }
             }
@@ -69,10 +70,12 @@
         return new_state
     }
 
+    let then;
+
     function render(state) {
         requestAnimationFrame(() => render(state));
-        now = Date.now();
-        elapsed = now - then;
+        const now = Date.now();
+        const elapsed = now - then;
         if (elapsed > fpsInterval) {
             then = now - (elapsed % fpsInterval);
 
@@ -92,8 +95,9 @@
             grid = next_step(grid);
         }
     }
-    var then = Date.now()
-    fpsInterval = 90
+
+    then = Date.now();
+    const fpsInterval = 90
     let inital =
 `................O............O................
 .........OO........................OO.........
@@ -142,11 +146,11 @@ O...O....................................O...O
 .........OO........................OO.........
 ................O............O................
 `
-    lines = inital.split("\n")
+    let lines = inital.split("\n")
     let grid = makeArray(WIDTH, WIDTH, undefined)
     for (let i = 0; i < lines.length; i++) {
         for (let j = 0; j < lines.length; j++) {
-            if (lines[i][j] == 'O') {
+            if (lines[i][j] === 'O') {
                 grid[i+8][j+8] = true 
             }
         }
