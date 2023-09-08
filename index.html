@@ -70,8 +70,6 @@
         return new_state
     }
 
-    let then;
-
     function render(state) {
         requestAnimationFrame(() => render(state));
         const now = Date.now();
@@ -97,8 +95,8 @@
     }
 
     then = Date.now();
-    const fpsInterval = 90
-    let inital =
+    fpsInterval = 90
+    inital =
 `................O............O................
 .........OO........................OO.........
 ........OOO...OO..............OO...OOO........
@@ -146,8 +144,8 @@ O...O....................................O...O
 .........OO........................OO.........
 ................O............O................
 `
-    let lines = inital.split("\n")
-    let grid = makeArray(CANVAS_W, CANVAS_W, undefined)
+    lines = inital.split("\n")
+    grid = makeArray(CANVAS_W, CANVAS_W, undefined)
     for (let i = 0; i < lines.length; i++) {
         for (let j = 0; j < lines.length; j++) {
             if (lines[i][j] === 'O') {
@@ -155,8 +153,8 @@ O...O....................................O...O
             }
         }
     }
-    let c = document.getElementById("canvas");
-    let ctx = c.getContext("2d");
+    c = document.getElementById("canvas");
+    ctx = c.getContext("2d");
     ctx.font = "5px Arial";
     ctx.fillStyle = "white"
     render()
