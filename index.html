@@ -31,7 +31,7 @@
 </body>
 <script type> </script>
 <script>
-    const WIDTH = 62
+    const CANVAS_W = 62
     function makeArray(w, h, val) {
         let arr = [];
         for(let i = 0; i < h; i++) {
@@ -45,20 +45,20 @@
         let neighbours = 0;
         if (i > 0 && state[i-1][j]) { neighbours += 1 }
         if (j > 0 && state[i][j-1]) { neighbours += 1 }
-        if (i < WIDTH-1 && state[i+1][j]) { neighbours += 1 }
-        if (j < WIDTH-1 && state[i][j+1]) { neighbours += 1 }
+        if (i < CANVAS_W-1 && state[i+1][j]) { neighbours += 1 }
+        if (j < CANVAS_W-1 && state[i][j+1]) { neighbours += 1 }
         if (i > 0 && j > 0 && state[i - 1][j - 1]) { neighbours += 1 }
-        if (i < WIDTH-1 && j < WIDTH-1 && state[i + 1][j + 1]) { neighbours += 1}
-        if (i > 0 && j < WIDTH-1 && state[i - 1][j + 1]) { neighbours += 1 }
-        if (i < WIDTH-1 && j > 0 && state[i + 1][j - 1]) { neighbours += 1 }
+        if (i < CANVAS_W-1 && j < CANVAS_W-1 && state[i + 1][j + 1]) { neighbours += 1}
+        if (i > 0 && j < CANVAS_W-1 && state[i - 1][j + 1]) { neighbours += 1 }
+        if (i < CANVAS_W-1 && j > 0 && state[i + 1][j - 1]) { neighbours += 1 }
         return neighbours
     }
 
     function next_step(current_state) {
-        let new_state = makeArray(WIDTH, WIDTH, undefined);
+        let new_state = makeArray(CANVAS_W, CANVAS_W, undefined);
         let neighbours;
-        for (let i = 0; i < WIDTH; i++) {
-            for (let j = 0; j < WIDTH; j++) {
+        for (let i = 0; i < CANVAS_W; i++) {
+            for (let j = 0; j < CANVAS_W; j++) {
                 neighbours = count_neighbours(current_state, i, j)
                 if (neighbours === 3) {
                     new_state[i][j] = true
@@ -85,8 +85,8 @@
             ctx.globalAlpha = 1.0;
             ctx.fillStyle = "#1e2124"
 
-            for (let i = 0; i < WIDTH; i++) {
-                for (let j = 0; j < WIDTH; j++) {
+            for (let i = 0; i < CANVAS_W; i++) {
+                for (let j = 0; j < CANVAS_W; j++) {
                     if (grid[i][j]) {
                         ctx.fillText("#", i * 5, j * 5);
                     }
@@ -147,7 +147,7 @@ O...O....................................O...O
 ................O............O................
 `
     let lines = inital.split("\n")
-    let grid = makeArray(WIDTH, WIDTH, undefined)
+    let grid = makeArray(CANVAS_W, CANVAS_W, undefined)
     for (let i = 0; i < lines.length; i++) {
         for (let j = 0; j < lines.length; j++) {
             if (lines[i][j] === 'O') {
