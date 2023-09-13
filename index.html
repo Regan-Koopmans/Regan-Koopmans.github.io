@@ -20,7 +20,7 @@
             Hi there! I am Regan. I am a software engineer based in The Netherlands.
             I am interested in optimisation, low-level programming and music.
         </p>
-        <canvas style="margin-top:20px;margin: auto;display: block;" id="canvas" width="300" height="300"></canvas>
+        <canvas style="margin-top:20px; margin-left: auto; margin-right: auto; display: block;" id="canvas" width="300" height="300"></canvas>
         </section>
 </body>
 <script type> </script>
@@ -74,7 +74,7 @@
             ctx.rect(0, 0, c.width, c.height);
             ctx.fillStyle = "white"
             ctx.fill();
-            ctx.globalAlpha = 1.0;
+            ctx.globalAlpha = 0.5;
             ctx.fillStyle = "#1e2124"
 
             for (let i = 0; i < CANVAS_W; i++) {
@@ -89,7 +89,7 @@
     }
 
     then = Date.now();
-    fpsInterval = 90
+    fpsInterval = 60
     inital =
 `................O............O................
 .........OO........................OO.........
