@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Regan Koopmans</title>
     <link rel="stylesheet" href="/styles.css">
-   <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/2.35.3/css/jquery.terminal.min.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/2.35.3/css/jquery.terminal.min.css"
+          rel="stylesheet"/>
     <script src="/components/nav/nav.js"></script>
 </head>
 <body>
@@ -15,113 +16,131 @@
     <site-nav></site-nav>
     <h3>Brainfuck</h3>
     <p>
-      Brainfuck is an esoteric programming language. I had heard of it in university,
-      and was aware of its reputation for being an inscrutible and difficult to write.
-      I assumed that the author had constructed the langauge to be as difficult as
-      possible. This did not interest me as a "Big Idea" for a language, so I did not
-      look into it further.
+        Brainfuck is an esoteric programming language. I had heard of it in university,
+        and was aware of its reputation for being an inscrutible and difficult to write.
+        I assumed that the author had constructed the langauge to be as difficult as
+        possible. This did not interest me as a "Big Idea" for a language, so I did not
+        look into it further.
     </p>
 
     <p>
-      However, recently I have been looking into this language again while reading about
-      virtual machines. Contrary to what I had thought, the premise of the language was not
-      to frustrate people but to create the simplest possible compiler. This is far more
-      interesting to me. When I attempted to write a Brainfuck compiler it was indeed simple,
-      and I was able to complete a satisfactory implementation in one sitting.
+        However, recently I have been looking into this language again while reading about
+        virtual machines. Contrary to what I had thought, the premise of the language was not
+        to frustrate people but to create the simplest possible compiler. This is far more
+        interesting to me. When I attempted to write a Brainfuck compiler it was indeed simple,
+        and I was able to complete a satisfactory implementation in one sitting.
     </p>
 
     <p>
-      It was the perfect size for a self-contained afternoon project, but it was also
-      <em>really</em> fun. Against all odds, people have written some non-trivial programs
-      in the langauge, and it is quite exciting to see them working on an interpreter on
-      an interpreter I personally wrote.
+        It was the perfect size for a self-contained afternoon project, but it was also
+        <em>really</em> fun. Against all odds, people have written some non-trivial programs
+        in the langauge, and it is quite exciting to see them working on an interpreter on
+        an interpreter I personally wrote.
     </p>
 
     <p>
-      I also now believe that writing a Brainfuck interpreter is superior to "Hello World" when
-      trying out a new langauge. "Hello World" is a good test for whether your environment
-      is ready compile and run programs, but it really does not convey anything insightful
-      about how the syntax is structured. A brainfuck interpreter will force you
-      to learn how a language defines variables, reads files, and perform basic conditional
-      logic.
+        I also now believe that writing a Brainfuck interpreter is superior to "Hello World" when
+        trying out a new langauge. "Hello World" is a good test for whether your environment
+        is ready compile and run programs, but it really does not convey anything insightful
+        about how the syntax is structured. A brainfuck interpreter will force you
+        to learn how a language defines variables, reads files, and perform basic conditional
+        logic.
     </p>
 
     <p>
-      After completing the brainfuck interpeter in your target language, you can then compare
-      <em>your</em> implementation to <em>others</em>. This will almost certainly reveal some
-      less obvious idiosyncrasies and standard practices in the language you did not know about.
+        After completing the brainfuck interpeter in your target language, you can then compare
+        <em>your</em> implementation to <em>others</em>. This will almost certainly reveal some
+        less obvious idiosyncrasies and standard practices in the language you did not know about.
     </p>
 
     <p>
-      I won't go into the details of Brainfuck or how to go about implementing an interpreter
-      (there are plenty such resources online), but I would recommend this as a
-      first foray into interpreters and virtual machines.
+        I won't go into the details of Brainfuck or how to go about implementing an interpreter
+        (there are plenty such resources online), but I would recommend this as a
+        first foray into interpreters and virtual machines.
     </p>
 
     <p>
-      Feel free to try out brainfuck below:
+        Feel free to try out brainfuck below:
     </p>
-<template id="greetings">
-BF 1.0. Regan Koopmans 2023
-Use bf command to run brainfuck programs.
-</template>
+    <template id="greetings">
+        BF 1.0. Regan Koopmans 2023
+        Use bf command to run brainfuck programs.
+    </template>
     <div id='terminal'></div>
-    <script>
-      $(function() {
-          $('#terminal').terminal(function(code) {
-        let tape = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-        let pointer = 0
-        let stack = []
-        let programCounter = 0
-
-        commands = {
-            '>': function () {
-                pointer++
-                // Dynamically grow the tape if we go out of bounds
-                if (pointer >= tape.length) { tape.push(0) }
-            },
-            '<': function () {
-                pointer--
-                if (pointer < 0) {
-                    tape.unshift(0)
-                    pointer = 0
-                }
-            },
-            '+': () => { tape[pointer]++ },
-            '-': () => { tape[pointer]-- },
-            '.': () => { this.echo("[[;orange;black]" + String.fromCharCode(tape[pointer]) + "]", {newline: false}) },
-            ',': () => { tape[pointer] = prompt('Enter a character:').charCodeAt(0) },
-            '[': () => {
-                if (tape[pointer] === 0) {
-                    let depth = 1
-                    while (depth > 0) {
-                        programCounter++
-                        if (code[programCounter] === '[') {
-                            depth++
-                        } else if (code[programCounter] === ']') { depth-- }
-                    }
-                } else { stack.push(programCounter) }
-            }, ']': function () { programCounter = stack.pop() - 1 }
-        }
-
-
-        tape = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-        pointer = 0
-        stack = []
-        programCounter = 0
-        iter_count = 100000
-        while (programCounter < code.length && iter_count-- > 0) {
-            let instr = code[programCounter]
-            if (instr in commands) { commands[instr]() }
-              programCounter++
-        }
-              this.echo()
-        }, { prompt: 'bf> ', greetings: false });
-      });
-    </script>
 </section>
 </body>
 <script src="/load.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/2.35.3/js/jquery.terminal.min.js"></script>
+<script>
+    $(function () {
+        $('#terminal').terminal(function (code) {
+            let tape = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            let pointer = 0
+            let stack = []
+            let programCounter = 0
+
+            commands = {
+                '>': function () {
+                    pointer++
+                    // Dynamically grow the tape if we go out of bounds
+                    if (pointer >= tape.length) {
+                        tape.push(0)
+                    }
+                },
+                '<': function () {
+                    pointer--
+                    if (pointer < 0) {
+                        tape.unshift(0)
+                        pointer = 0
+                    }
+                },
+                '+': () => {
+                    tape[pointer]++
+                },
+                '-': () => {
+                    tape[pointer]--
+                },
+                '.': () => {
+                    this.echo("[[;orange;black]" + String.fromCharCode(tape[pointer]) + "]", {newline: false})
+                },
+                ',': () => {
+                    tape[pointer] = prompt('Enter a character:').charCodeAt(0)
+                },
+                '[': () => {
+                    if (tape[pointer] === 0) {
+                        let depth = 1
+                        while (depth > 0) {
+                            programCounter++
+                            if (code[programCounter] === '[') {
+                                depth++
+                            } else if (code[programCounter] === ']') {
+                                depth--
+                            }
+                        }
+                    } else {
+                        stack.push(programCounter)
+                    }
+                }, ']': function () {
+                    programCounter = stack.pop() - 1
+                }
+            }
+
+
+            tape = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            pointer = 0
+            stack = []
+            programCounter = 0
+            iter_count = 100000
+            while (programCounter < code.length && iter_count-- > 0) {
+                let instr = code[programCounter]
+                if (instr in commands) {
+                    commands[instr]()
+                }
+                programCounter++
+            }
+            this.echo()
+        }, {prompt: 'bf> ', greetings: false});
+    });
+</script>
 </html>
