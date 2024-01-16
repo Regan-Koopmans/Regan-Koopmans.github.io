@@ -17,8 +17,25 @@
     <h3>Intractable Does not Imply Impossible</h3>
 
     <p>
-        Problems exist in a range of solvability. To most programmers this will be familiar as
-        asymptotic complexity, or Big-O notation.
+        Problems exist in a range of solvability. I think that as an industry we do not comprehend this
+        concept correctly. Take, for example, the halting problem. The halting problem states that
+        you cannot write a program that can predict <em>for all programs</em> whether they will complete.
+        This does not mean that you cannot predict this for many programs. In fact, with static analysis
+        you can solve a subset of the halting problem for many classes of programs. All non-beginner programmers
+        can determine that the following snippet will not halt:
+    </p>
+
+    <pre>
+while (true) {
+        printf("Hello world!\n");
+}
+    </pre>
+
+    <p>
+        Knowing that the halting problem exists is akin to knowing that there will likely be a heat-death of
+        the universe. It is a fact, but you can let this information affect you in different ways. It is not
+        yet known how far we can "solve" the halting problem, but I find it existing to consider what the
+        possibilities are.
     </p>
 </section>
 </body>
