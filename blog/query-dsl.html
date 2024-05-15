@@ -8,19 +8,22 @@
 </head>
 <body>
 <section class="container mx-auto max-w-prose py-24 px-5">
-    <h1 class="text-3xl font-medium">Regan Koopmans</h1>
+    <h1 class="text-3xl text-zinc-800 font-medium">Regan Koopmans</h1>
     <div class="mt-3">
         <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline" href="/">Home</a>
         <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline" href="/blog.html">Blog</a>
         <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline" href="/opinions.html">Opinions</a>
         <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline" href="/projects.html">Projects</a>
     </div>
-    <ul class="list-disc pt-8">
-	    <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline" href="/blog/query-dsl.html">Stop Inventing Incomplete Query Languages</a><br/>
-	    <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline" href="/blog/capital_gains.html">Capital Gains</a><br/>
-        <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline" href="/blog/markets.html">Markets</a>
-    </ul>
+    <h2 class="text-2xl pt-8">Stop Inventing Incomplete Query Languages</h2>
+    <p class="prose py-2">
+        The query languages offered with many "big data" cloud solutions are quite terrible.
+        I am referring to languages like PromQL/LogQL and Google's "logging query language". For one,
+        these query languages fundamentally have extremely similar requirements: filtering text by
+        some substring or perhaps a regular expression. In most cases simply offering a 1986 standard
+        SQL compliance interface would be sufficient and better than some proprietary query language.
+        This must be motivated by vendor-lock-in aspirations.
+    </p>
 </section>
 </body>
 <script src="/load.js"></script>
-</html>
