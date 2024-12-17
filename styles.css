@@ -1,4 +1,7 @@
-* {font-family: serif;}
+* {
+    font-family: serif;
+    background: #dfdfdf;
+}
 table {
     max-width: 800px;
     margin: auto;
