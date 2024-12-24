@@ -4,15 +4,9 @@
   <style>
     pre {
     font-family: monospace;
-    color: white;
-    background: black;
+    color: black;
+    background: white;
     padding: 20px;
-    }
-
-    pre span {
-      font-family: monospace;
-      background: black;
-      color: #68ffd4;
     }
   </style>
   </head>
@@ -28,11 +22,11 @@
        </td>
        <td>
 <pre>
-#include <span>"json.h"</span>
+#include "json.h"
 
-<span>int</span> main() {
-  <span>const char</span> * input = <span>"{'hello' : 'world'}"</span>;
-  struct <span>JSON</span> json = parse_json(input); 
+int main() {
+  const char * input = "{'hello' : 'world'}";
+  struct JSON json = parse_json(input);
 }
 </pre>	   
        </td>
