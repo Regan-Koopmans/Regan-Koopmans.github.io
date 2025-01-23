@@ -1,5 +1,5 @@
 * {
-    font-family: serif;
+    font-family: Tahoma, sans-serif;
     background: oklch(0.989006 0.007344 80.7214);
 }
 table {
@@ -22,6 +22,8 @@ img {
     -ms-interpolation-mode: nearest-neighbor; 
 
 }
+a { color: #a46d1b; }
+a:hover { color: orange; }
 ul { margin: 0; }
 body {
     display: flex;
