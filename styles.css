@@ -1,6 +1,6 @@
 * {
     font-family: serif;
-    background: #dfdfdf;
+    background: oklch(0.989006 0.007344 80.7214);
 }
 table {
     max-width: 800px;
