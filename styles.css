@@ -32,3 +32,6 @@ body {
     flex-flow: column;
     align-items: center;
 }
+th {
+    font-size: 24px;
+}
