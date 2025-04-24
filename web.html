@@ -1,0 +1,27 @@
+<html lang="en"><head><meta name="viewport" content="width=device-width, initial-scale=1" /> 
+   <title>The State of Web</title>
+  </head>
+  <body>
+      <h1>The State of Web</h1>
+      <p>
+	Web development feels extrememly broken lately, and I feel the need to write about it. The potential of the web for enabling software development is enormous, but we are not headed in a good direction. My issues are organised thusly:
+	
+	<h2>TypeScript</h2>
+
+	</p>The general consensus appears to be that TypeScript is actually one of the good things in web development. I disagree. Take this code for example, which finds the maximum element in an array:</p>
+
+<pre>
+const myArray: Array<integer | null> = [1, 2, null, 3, 4, 5];
+const maximum = myArray.filter(x != null)
+    .reduce((x,y) => x > y ? x : y);
+</pre>
+<p>
+The current TypeScript compiler will complain that x can be null, even though we have an extremely obvious filter for this. This might sound like a nitpick, but this is one example of a broad problem: TypeScript has too many false positives and negatives to be significantly useful. TypeScript <em>does</em> make you code noisy though, and introduces a build step that is often slow enough to compete with much better languages.
+I have not doubt that TypeScript has prevented some potential bugs in codebases, but it comes at significant cost. I would much prefer that web apps are built with a thin layer of vanilla JavaScript calling into WASM for mission-critical logic (written in one of the myriad languages that now offer WASM targets).
+</p>
+     <h2>npm and friends</h2>
+
+     
+
+  </body>
+</html>
