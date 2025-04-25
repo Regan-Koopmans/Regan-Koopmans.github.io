@@ -1,8 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Inconsolata:wght@200..900&display=swap');
-h1, h2, h3, h4, h5, h6 { font-family: "Cal Sans", sans-serif; font-weight: 400; font-style: normal; }
+h1, h2, h3, h4, h5, h6 { font-family: "Cal Sans", sans-serif; font-weight: 400; font-style: normal; text-decoration: underline }
 body { font-family: "Inconsolata", monospace; font-weight: 400; font-style: normal; }
-
-    p {
-	text-align: justify;
-    }
+p { text-align: justify; }
 body{max-width: 600px;margin-left: auto;margin-right: auto;}
