@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>a theory of software</title>
+  <style>
+    body { display: flex; margin: 0; font-family: sans-serif; }
+    nav { width: 250px; background: #f0f0f0; padding: 1em; height: 100vh; overflow-y: auto; }
+    main { flex: 1; padding: 2em; }
+    a { text-decoration: none; color: #0077cc; }
+  </style>
+</head>
+<body>
+<nav>
+<ul>
+<li><a href="/about me.html">about me</a></li>
+<li><a href="/index.html">index</a></li>
+<li>software
+<ul>
+<li><a href="/software/a theory of software.html">a theory of software</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+<main>
+<h1 id="a-theory-of-software">a theory of software</h1>
+<p>As the scope and complexity of software increases, so does the
+potential for harm. The failure of an important software system is now
+comparable to that of large physical structures such as dams or bridges.
+Despite this, there is a distinct lack of true engineering practice in
+the software industry. Software professionals wear the title of
+“software engineer”, but the average quality of software products is
+generally low and prone to failure.</p>
+<p>The purpose of this document is to offer an big-picture analysis on
+the purpose of software, and a vision for how it can support human
+flourishing for the next 1000 years or more. This is not a manifesto.
+This document promotes ideas but not idealogies. I have tried to write
+this document such that deep knowledge on software and hardware should
+not be necessary.</p>
+<h2 id="the-human-and-the-machine">the human and the machine</h2>
+<p>In order to talk about software we should first define it. For this
+document I will define software as a contract between human intention
+and machine capability. To explain this, take the following pseudo-code
+snippet for example:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">1</span> <span class="op">+</span> <span class="dv">1</span>)</span></code></pre></div>
+<p>This program computes the sum of 1 and 1 and displays this
+<em>somewhere</em>. The software here is not the text itself. Text is
+merely a convenient representation for an expression of machine
+abilities arranged against human desires. Observe that this program
+could be fulfilled by many different existing and future physical
+machines. For all such machines we would expect to see “2” displayed to
+the user. The program above is abstract: there is no specification for
+how the value 1 should be internally represented, or how the value of 2
+should be formatted when printed to the user. Similarly to legal
+contracts, contracts between users and machines can be terse or verbose.
+In cases where contracts contain ambiguity (such as verbal agreements),
+there is typically more work required in determining the interpretation
+of the contract. Such is the case in software, whereby certain checks
+and balances can be deferred to the run time rather than defined ahead
+of time.</p>
+</main>
+</body>
+</html>
